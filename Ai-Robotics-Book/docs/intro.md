@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Introduction to AI Robotics
+# Introduction to Physical-AI-Humanoid Robots
 
-Welcome to the **AI Robotics Book** - your comprehensive guide to the fascinating intersection of artificial intelligence and robotics.
+Welcome to the **Physical-AI-Humanoid Robots** - your comprehensive guide to the fascinating intersection of artificial intelligence and humanoid robotics.
 
 ## About This Book
 

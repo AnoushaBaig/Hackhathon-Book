@@ -1,6 +1,6 @@
-# AI Robotics Book
+# Physical-AI-Humanoid Robots
 
-Welcome to the AI Robotics Book - a comprehensive guide to the intersection of artificial intelligence and robotics. This Docusaurus-powered website provides in-depth coverage of AI robotics concepts, applications, and implementation.
+Welcome to the Physical-AI-Humanoid Robots - a comprehensive guide to the intersection of artificial intelligence and humanoid robotics. This Docusaurus-powered website provides in-depth coverage of AI robotics concepts, applications, and implementation.
 
 ## About This Book
 
@@ -52,7 +52,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ## Contributing
 
-We welcome contributions to improve and expand the AI Robotics Book. To contribute:
+We welcome contributions to improve and expand the Physical-AI-Humanoid Robots. To contribute:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-section`)

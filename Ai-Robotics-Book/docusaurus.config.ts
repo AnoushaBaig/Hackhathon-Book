@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'AI Robotics Book',
+  title: 'Physical-AI-Humanoid Robots',
   tagline: 'Comprehensive Guide to Artificial Intelligence and Robotics',
   favicon: 'img/favicon.ico',
 
@@ -15,7 +15,7 @@ const config: Config = {
   baseUrl: '/',  // <-- yeh change kiya hai GitHub Pages se Vercel ke liye
 
   organizationName: 'AnoushaBaig',
-  projectName: 'Ai-Robotics-Book',
+  projectName: 'Physical-AI-Humanoid-Robots',
 
   onBrokenLinks: 'throw',
 
@@ -31,7 +31,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/AnoushaBaig/Ai-Robotics-Book/tree/main/', // apne repo ka link yahan update karo
+            'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots/tree/main/', // apne repo ka link yahan update karo
         },
         blog: {
           showReadingTime: true,
@@ -40,7 +40,7 @@ const config: Config = {
             xslt: true,
           },
           editUrl:
-            'https://github.com/AnoushaBaig/Ai-Robotics-Book/tree/main/',
+            'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -58,9 +58,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'AI Robotics Book',
+      title: 'Physical-AI-Humanoid Robots',
       logo: {
-        alt: 'AI Robotics Book Logo',
+        alt: 'Physical-AI-Humanoid Robots Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -72,7 +72,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/AnoushaBaig/Ai-Robotics-Book',
+          href: 'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots',
           label: 'GitHub',
           position: 'right',
         },
@@ -116,12 +116,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/AnoushaBaig/Ai-Robotics-Book',
+              href: 'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} AI Robotics Book. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Physical-AI-Humanoid Robots. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

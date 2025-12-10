@@ -13,7 +13,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // Manual sidebar for AI Robotics Book
+  // Manual sidebar for Physical-AI-Humanoid Robots
   tutorialSidebar: [
     {
       type: 'category',

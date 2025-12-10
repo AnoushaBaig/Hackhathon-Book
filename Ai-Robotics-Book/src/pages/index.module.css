@@ -21,3 +21,19 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Custom homepage styling */
+.heroBanner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.hero__title, .hero__subtitle {
+  color: white !important;
+}
+
+.button--secondary {
+  background: #f0f9ff !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+}
