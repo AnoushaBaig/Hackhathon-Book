@@ -40,8 +40,9 @@ export class ExportService {
       logger.info('Book exported successfully', { bookId, format, downloadUrl: result.downloadUrl });
       return result;
     } catch (error) {
-      logger.error('Error exporting book', { bookId, format, error: error.message });
-      throw new Error(`Export failed: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      logger.error('Error exporting book', { bookId, format, error: errorMessage });
+      throw new Error(`Export failed: ${errorMessage}`);
     }
   }
 

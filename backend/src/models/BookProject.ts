@@ -1,4 +1,6 @@
 // BookProject model
+import { BookTemplate } from './BookTemplate';
+
 export interface BookProject {
   id: string;
   title: string;

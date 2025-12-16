@@ -52,6 +52,7 @@ const config: Config = {
     ],
   ],
 
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
@@ -64,13 +65,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/docs/chatbot', label: 'AI Assistant', position: 'left'},
         {
           href: 'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots',
           label: 'GitHub',
@@ -82,11 +77,15 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Resources',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Documentation',
               to: '/docs/intro',
+            },
+            {
+              label: 'AI Assistant',
+              to: '/docs/chatbot',
             },
           ],
         },
@@ -94,16 +93,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub',
+              href: 'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots',
             },
             {
               label: 'Discord',
               href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
             },
           ],
         },
@@ -111,12 +106,8 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/AnoushaBaig/Physical-AI-Humanoid-Robots',
+              label: 'About',
+              to: '/docs/intro',
             },
           ],
         },

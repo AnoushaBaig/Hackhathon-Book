@@ -51,7 +51,8 @@ export class ContentGenerationService {
 
       logger.info('Content generation completed successfully', { id: bookProject.id });
     } catch (error) {
-      logger.error('Error during content generation', { id: bookProject.id, error: error.message });
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      logger.error('Error during content generation', { id: bookProject.id, error: errorMessage });
 
       // Update project status to failed
       this.updateProjectStatus(bookProject.id, 'failed');

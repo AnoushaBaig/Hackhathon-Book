@@ -76,7 +76,7 @@ export class BookController {
 
       logger.info('Book project created successfully', { id: bookProject.id });
     } catch (error) {
-      logger.error('Error creating book project', { error: error.message });
+      logger.error('Error creating book project', { error: (error as Error).message });
       res.status(500).json({
         success: false,
         error: {
@@ -120,7 +120,7 @@ export class BookController {
 
       logger.info('Book project fetched successfully', { id });
     } catch (error) {
-      logger.error('Error fetching book project', { error: error.message, id: req.params.id });
+      logger.error('Error fetching book project', { error: (error as Error).message, id: req.params.id });
       res.status(500).json({
         success: false,
         error: {
@@ -141,7 +141,7 @@ export class BookController {
 
       logger.info('Book templates fetched successfully', { count: defaultTemplates.length });
     } catch (error) {
-      logger.error('Error fetching book templates', { error: error.message });
+      logger.error('Error fetching book templates', { error: (error as Error).message });
       res.status(500).json({
         success: false,
         error: {
@@ -184,7 +184,7 @@ export class BookController {
 
       logger.info('Book exported successfully', { id, format });
     } catch (error) {
-      logger.error('Error exporting book', { error: error.message, id: req.params.id, format: req.body.format });
+      logger.error('Error exporting book', { error: (error as Error).message, id: req.params.id, format: req.body.format });
       res.status(500).json({
         success: false,
         error: {

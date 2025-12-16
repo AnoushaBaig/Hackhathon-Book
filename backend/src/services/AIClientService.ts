@@ -1,20 +1,20 @@
-// AIClientService to interface with OpenAI
-import OpenAI from 'openai';
-import config from '../../config';
+// AIClientService to interface with Google Gemini
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import config from '../config';
 import { BookTemplate } from '../models/BookTemplate';
 import { logger } from '../utils/logger';
 
 export class AIClientService {
-  private openai: OpenAI;
+  private gemini?: GoogleGenerativeAI;
 
   constructor() {
-    if (!config.openai.apiKey) {
-      logger.warn('OpenAI API key not configured. AI functionality will not work.');
+    if (!config.gemini?.apiKey) {
+      logger.warn('Gemini API key not configured. AI functionality will not work.');
     }
 
-    this.openai = new OpenAI({
-      apiKey: config.openai.apiKey,
-    });
+    if (config.gemini?.apiKey) {
+      this.gemini = new GoogleGenerativeAI(config.gemini.apiKey);
+    }
   }
 
   // Generate book content using AI
@@ -33,33 +33,29 @@ export class AIClientService {
 
       prompt += `The content should be professional-level documentation with clear explanations, follow clean and concise writing style without marketing language or fluff, and feel like official engineering documentation or handbooks. Include chapters, sections, and subsections as appropriate for the topic.`;
 
-      // For now, we'll return mock content since we don't have an actual API key
-      // In a real implementation, we would call the OpenAI API
-      if (!config.openai.apiKey) {
-        logger.warn('Using mock content generation since OpenAI API key is not configured');
+      // For now, we'll return mock content if no Gemini API key is configured
+      if (!config.gemini?.apiKey) {
+        logger.warn('Using mock content generation since Gemini API key is not configured');
         return this.generateMockContent(topic, description);
       }
 
-      // Call the OpenAI API (commented out to avoid actual API calls without key)
-      /*
-      const response = await this.openai.chat.completions.create({
-        model: 'gpt-3.5-turbo', // or 'gpt-4' if available
-        messages: [
-          { role: 'system', content: 'You are an expert technical writer creating professional documentation.' },
-          { role: 'user', content: prompt }
-        ],
-        max_tokens: 2000, // Adjust based on requirements
-        temperature: 0.7,
-      });
+      if (!this.gemini) {
+        logger.warn('Gemini client not initialized');
+        return this.generateMockContent(topic, description);
+      }
 
-      return response.choices[0].message.content || '';
-      */
+      // Use Gemini model
+      const model = this.gemini.getGenerativeModel({ model: "gemini-pro" });
 
-      // For now, return mock content
-      return this.generateMockContent(topic, description);
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+
+      return text;
     } catch (error) {
-      logger.error('Error generating content with AI service', { error: error.message });
-      throw new Error(`AI content generation failed: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      logger.error('Error generating content with AI service', { error: errorMessage });
+      throw new Error(`AI content generation failed: ${errorMessage}`);
     }
   }
 
@@ -121,15 +117,16 @@ This comprehensive guide has covered the essential aspects of ${topic}, providin
   // Validate if the service can make API calls
   public async canConnect(): Promise<boolean> {
     try {
-      if (!config.openai.apiKey) {
+      if (!config.gemini?.apiKey) {
         return false;
       }
 
       // In a real implementation, we might make a simple API call to test connectivity
       // For now, we'll just check if the API key is set
-      return !!config.openai.apiKey;
+      return !!config.gemini?.apiKey;
     } catch (error) {
-      logger.error('Error checking AI service connectivity', { error: error.message });
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      logger.error('Error checking AI service connectivity', { error: errorMessage });
       return false;
     }
   }

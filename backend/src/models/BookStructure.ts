@@ -34,7 +34,7 @@ export const validateBookStructure = (structure: BookStructure): string[] => {
 };
 
 // Factory function to create a new BookStructure
-export const createBookStructure = (input: Omit<BookStructure, 'children'>): BookStructure => {
+export const createBookStructure = (input: Omit<BookStructure, 'children'> & { children?: BookStructure[] }): BookStructure => {
   return {
     ...input,
     children: input.children || [],

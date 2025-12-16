@@ -43,10 +43,10 @@ const isValidMimeType = (mimeType: string): boolean => {
 };
 
 // Factory function to create a new ExportFormat
-export const createExportFormat = (input: Omit<ExportFormat, 'id'>): ExportFormat => {
+export const createExportFormat = (input: Omit<ExportFormat, 'id'> & { id: ExportFormatId }): ExportFormat => {
   return {
     ...input,
-    id: input.id as ExportFormatId,
+    id: input.id,
   };
 };
 

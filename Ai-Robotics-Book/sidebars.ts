@@ -85,14 +85,21 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tutorials',
+      label: 'AI Assistant',
       items: [
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/congratulations',
+        'chatbot',
       ],
     },
+    // {
+    //   type: 'category',
+    //   label: 'Tutorials',
+    //   items: [
+    //     'tutorial-basics/create-a-document',
+    //     'tutorial-basics/create-a-blog-post',
+    //     'tutorial-basics/markdown-features',
+    //     'tutorial-basics/congratulations',
+    //   ],
+    // },
   ],
 };
 
